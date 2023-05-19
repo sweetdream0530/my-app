@@ -1,0 +1,87 @@
+<!-- Form -->
+<h1>Travel Booking Form</h1>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <!-- Traveller name -->
+  <div class="form-group">
+    <label for="name">Traveller name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      ngModel
+      required
+      class="form-control"
+    />
+  </div>
+
+  <!-- Traveller email -->
+  <div class="form-group">
+    <label for="email">Traveller email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      ngModel
+      required
+      class="form-control"
+    />
+  </div>
+
+  <!-- Channel -->
+  <div class="form-group">
+    <label for="channel">Channel</label>
+    <select id="channel" name="channel" ngModel required class="form-control">
+      <option value="">Select one</option>
+      <option value="partner">Partner</option>
+      <option value="agent">Agent</option>
+      <option value="direct customer">Direct customer</option>
+    </select>
+  </div>
+
+  <!-- Meet & greet option -->
+  <div class="form-group form-check">
+    <input
+      type="checkbox"
+      id="meetGreet"
+      name="meetGreet"
+      ngModel
+      class="form-check-input"
+    />
+    <label for="meetGreet" class="form-check-label"
+      >Is meet & greet option requested?</label
+    >
+  </div>
+
+  <!-- Travel datetime -->
+  <div class="form-group">
+    <label for="travelDate">Travel datetime</label>
+    <input
+      type="datetime-local"
+      id="travelDate"
+      name="travelDate"
+      ngModel
+      required
+      class="form-control"
+    />
+  </div>
+
+  <!-- Booking price -->
+  <div class="form-group">
+    <label for="price">Booking price</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      ngModel
+      required
+      min="0"
+      step="0.01"
+      class="form-control"
+    />
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" [disabled]="!f.valid" class="btn" btn-primary>
+    Submit
+  </button>
+</form>
